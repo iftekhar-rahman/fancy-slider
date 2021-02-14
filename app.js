@@ -110,13 +110,30 @@ const changeSlide = (index) => {
 }
 
 searchBtn.addEventListener('click', function () {
+
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
   const search = document.getElementById('search');
   getImages(search.value)
   sliders.length = 0;
+
+
 })
 
 sliderBtn.addEventListener('click', function () {
   createSlider()
 })
+
+
+/*----------Show result on enter key press-----------*/ 
+const inputBox = document.getElementById('search');
+inputBox.addEventListener("keypress", function(event){
+  if(event.key === "Enter"){
+    const searchResult = document.getElementById('search');
+    getImages(searchResult.value)
+
+    document.getElementById("search-btn").click();
+  }
+});
+
+
