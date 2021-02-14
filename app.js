@@ -126,7 +126,13 @@ searchBtn.addEventListener('click', function () {
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
   const search = document.getElementById('search');
-  getImages(search.value)
+
+  /*-------------New Feature--------------*/ 
+  if(search.value == ''){
+    alert("Please, write something in the box. Thank you");
+  }else{
+    getImages(search.value)
+  }
   sliders.length = 0;
 
 })
@@ -148,8 +154,8 @@ inputBox.addEventListener("keypress", function(event){
 });
 
 
-
-/*-------- toggle spinner ---------*/ 
+/*-------------New Feature--------------*/
+/*-------- loading spinner ---------*/ 
 const toggleSpinner = () => {
   const spinnerHandle = document.getElementById('spinner');
   const imagesDiv = document.getElementById('images-container');
